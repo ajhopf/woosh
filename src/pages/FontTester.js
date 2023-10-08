@@ -15,7 +15,8 @@ const FontTester = () => {
     <p>
       Phasellus consectetur egestas nisl, non volutpat
       quam tempus non. Phasellus vestibulum bibendum
-      orci in nibus. Phasellus rhoncus nec turpis sed nibus. Vestibulum vel eleifend nisl. Phasellus in
+      orci in nibus. Phasellus rhoncus nec turpis
+      sed nibus. Vestibulum vel eleifend nisl. Phasellus in
       ornare sapien. Quisque interdum molestie bibendum. Nunc in massa elementum erat ornare porta
       ut quis magna.
     </p>

@@ -1,11 +1,15 @@
-import {Link, NavLink} from "react-router-dom";
+import {Link, NavLink, useLocation, useNavigation} from "react-router-dom";
 import {Nav, Navbar} from "react-bootstrap";
 import {useState} from "react";
 
-import logo from '../assets/woosh-icon.png';
+import whitelogo from '../assets/icon-white.png';
+import blackLogo from '../assets/icon-black.png';
+
 import './MainNav.scss';
 
 const MainNav = (props) => {
+  const location = useLocation();
+
   const [open, setOpen] = useState(false);
 
   const handleNavItemClick = () => {
@@ -19,6 +23,8 @@ const MainNav = (props) => {
     setOpen(prevState => !prevState);
     props.setMainDisplay();
   };
+
+  const logo = location.pathname.includes('works') ? blackLogo : whitelogo;
 
   const navBackgroundClasses = open ? "main-nav open" : "main-nav";
   const toggleMenuBtnClasses = open ? "menu-toggle open" : "menu-toggle";
@@ -64,26 +70,3 @@ const MainNav = (props) => {
 };
 
 export default MainNav;
-
-//old nav
-
-
-// <Navbar expand="lg" className="main-nav">
-//   <Navbar.Brand>
-//     <Link className="link" to="/">
-//       <img className="img" src={ logo } alt="Woosh logo"/>
-//     </Link>
-//   </Navbar.Brand>
-//   <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-//   <Navbar.Collapse id="basic-navbar-nav">
-//     <Container className="d-flex justify-content-center justify-content-md-end">
-//       <Nav  className="flex-grow-1 flex-md-grow-0">
-//         <NavLink className={({isActive}) => isActive ? navLinkClasses + "actual" : navLinkClasses} to="/">HOME</NavLink>
-//         <NavLink className={({isActive}) => isActive ? navLinkClasses + "actual" : navLinkClasses} to="/">WORKS</NavLink>
-//         <NavLink className={({isActive}) => isActive ? navLinkClasses + "actual" : navLinkClasses} to="/">WHO</NavLink>
-//         <NavLink className={({isActive}) => isActive ? navLinkClasses + "actual" : navLinkClasses} to="/">CONTACT</NavLink>
-//         <NavLink className={({isActive}) => isActive ? navLinkClasses + "actual" : navLinkClasses} to="/font-test">FONT TEST</NavLink>
-//       </Nav>
-//     </Container>
-//   </Navbar.Collapse>
-// </Navbar>

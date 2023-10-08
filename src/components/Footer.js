@@ -1,13 +1,15 @@
 import './Footer.scss'
 
+import instagram from '../assets/instagram.svg'
+import {Link} from "react-router-dom";
+
+
 const Footer = () => {
-  return <footer>
-    <div className="row">
-      <div className="col d-flex align-items-center">
-        <h3>{ "Fale conosco".toUpperCase() }</h3>
-      </div>
-      <div className="col"></div>
-    </div>
+  return <footer className="d-flex align-items-center justify-content-center">
+    <Link to="https://www.instagram.com/bgelpi/" target={"_blank"}>
+      <img src={instagram}/>
+    </Link>
+
   </footer>
 };
 

@@ -1,4 +1,19 @@
 footer {
+  height: 30vh;
   background-color: #2D2A2B;
   color: #DADADA;
+  background-image: url("../assets/footer-bg.PNG");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  h3 {
+    overflow-y: hidden;
+  }
+}
+
+@media (min-width: 450px) {
+  footer {
+    height: 50vh;
+    background-size: cover;
+  }
 }

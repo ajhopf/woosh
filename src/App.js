@@ -3,6 +3,7 @@ import MainLayout from "./layout/MainLayout";
 import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import FontTester from "./pages/FontTester";
+import Works from "./pages/Works";
 
 function App() {
   const router = createBrowserRouter([
@@ -17,7 +18,7 @@ function App() {
         },
         {
           path: '/works',
-          element: <Home/>
+          element: <Works/>
         },
         {
           path: '/who',
