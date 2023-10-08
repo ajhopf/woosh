@@ -1,5 +1,5 @@
 .video-container {
-  height: 80vh;
+  height: 87vh;
   overflow-y: hidden;
 }
 
@@ -17,8 +17,8 @@
 
 img.body-img {
   height: 10vh;
-  position: relative;
-  top: 90%;
+  position: absolute;
+  top: 87%;
   left: 50%;
   transform: translateX(-50%);
 }

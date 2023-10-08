@@ -2,6 +2,7 @@ import MainNav from "../components/MainNav";
 import {Outlet} from "react-router-dom";
 
 import {useState} from "react";
+import Footer from "../components/Footer";
 
 const MainLayout = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -11,9 +12,10 @@ const MainLayout = () => {
 
   return <>
     <MainNav setMainDisplay={setMainDisplay}/>
-    <main >
+    <main>
       {!mobileMenuOpen && <Outlet/>}
     </main>
+    <Footer/>
   </>
 };
 
