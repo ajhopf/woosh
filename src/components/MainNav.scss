@@ -50,11 +50,11 @@
 .woosh-nav-link {
   color: #DADADA;
   font-family: 'Inter', sans-serif;
-  transition: 0.5s;
+  //transition: 0.5s;
 
   &.actual, &:hover {
     color: #2D2A2B;
-    transition: 0.5s;
+    //transition: 0.5s;
   }
 }
 
