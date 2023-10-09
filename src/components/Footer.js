@@ -9,7 +9,6 @@ const Footer = () => {
     <Link to="https://www.instagram.com/bgelpi/" target={"_blank"}>
       <img src={instagram}/>
     </Link>
-
   </footer>
 };
 
