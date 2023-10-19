@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import FontTester from "./pages/FontTester";
 import Works from "./pages/Works";
 import Contact from "./pages/Contact";
+import Who from "./pages/Who";
 
 function App() {
   const router = createBrowserRouter([
@@ -23,7 +24,7 @@ function App() {
         },
         {
           path: '/who',
-          element: <Home/>
+          element: <Who/>
         },
         {
           path: '/contact',

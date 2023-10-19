@@ -24,16 +24,18 @@ const MainNav = (props) => {
   };
 
   const isWorksPage = location.pathname.includes('works');
+  const isWhoPage = location.pathname.includes('who');
 
-  const worksPage = isWorksPage ? " works" : "";
+  //not being used -> can be used to style nav based on current page
+  const pageStyling = isWorksPage ? " works" : isWhoPage ? " who" : "";
 
   const navBackgroundClasses = open ? "main-nav open" : "main-nav";
   const toggleMenuBtnClasses = open ? "menu-toggle open" : "menu-toggle";
   const navLinkClasses = "nav-link woosh-nav-link fs-2 ";
 
-  return <Navbar expand="sm" expanded={ open } className={ navBackgroundClasses + worksPage }>
+  return <Navbar expand="sm" expanded={ open } className={ navBackgroundClasses + pageStyling }>
     <Link className="mobile-logo" to="/">
-      <img className="img" src={ logo + isWorksPage } alt="Woosh logo"/>
+      <img className="img" src={ logo } alt="Woosh logo"/>
     </Link>
     <button
       onClick={handleNavBarToggle}

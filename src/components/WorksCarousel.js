@@ -16,6 +16,9 @@ const images = [
   {src: mizuno, text: "Mizuno"}
 ];
 
+//video de transiçao
+//https://www.youtube.com/watch?v=-pDPASqX97w&ab_channel=WebDevSimplified
+
 const CarouselItem = (props) => {
   const backgroundImage = {
     backgroundImage: `url(${props.src})`
