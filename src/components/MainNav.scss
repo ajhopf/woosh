@@ -6,16 +6,6 @@
   height: 13vh;
   background-color: transparent;
 
-  //&.works {
-  //  background-color: white;
-  //}
-
- //&.works {
- //  img {
- //    filter: invert(0.7);
- //  }
- //}
-
   & img {
     margin-left: 1rem;
     max-height: 8vh;
@@ -31,6 +21,18 @@
         color: #FFF;
         transition: 0.5s;
       }
+    }
+  }
+
+  .woosh-nav-link {
+    color: #DADADA;
+    font-family: 'Inter', sans-serif;
+    font-size: 3.5rem;
+    //transition: 0.5s;
+
+    &.actual, &:hover {
+      color: #2D2A2B;
+      //transition: 0.5s;
     }
   }
 }
@@ -57,18 +59,7 @@
   }
 }
 
-.woosh-nav-link {
-  color: #DADADA;
-  font-family: 'Inter', sans-serif;
-  //transition: 0.5s;
-
-  &.actual, &:hover {
-    color: #2D2A2B;
-    //transition: 0.5s;
-  }
-}
-
-@media (max-width: 575.99px) {
+@media (max-width: 768px) {
   .mobile-logo {
     display: inline;
   }
@@ -111,5 +102,11 @@
 
   .menu-toggle.open .bar:nth-child(3){
     transform: translateY(-8px) rotate(-45deg)
+  }
+}
+
+@media (max-width: 1260px) {
+  .main-nav .woosh-nav-link {
+    font-size: 2.3rem;
   }
 }

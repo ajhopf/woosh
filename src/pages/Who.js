@@ -10,7 +10,7 @@ const texts = {
     "With a portfolio that includes collaborations with renowned brands like Corona, Canal Off, Mizuno, Olympikus," +
     " and TikTok, he has become a true maestro in the world of audio production. " +
     "His artistic journey began as the lead vocalist and founder of the band Gelpi, a musical venture that also" +
-    " featured his talented siblings, Pedro and Laura.",
+    " featured his talented siblings.",
     "Bolívar's passion for music and audio innovation has evolved over the years, and he's now the driving force behind Woosh, his own brand. " +
     "His ability to blend the auditory and visual realms into a harmonious symphony is what sets him apart. He" +
     " is not just a sound mixer; he's a storyteller through audio."

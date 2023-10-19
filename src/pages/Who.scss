@@ -2,13 +2,15 @@
   background-color: #DADADA;
 
   h1, h2 {
-    font-size: 3rem;
+    font-size: 4rem;
     margin-top: 2rem;
+    overflow-y: hidden;
+    overflow-wrap: break-word;
   }
 
-  p {
-    font-size: 0.85rem;
-  }
+  //p {
+  //  font-size: 0.85rem;
+  //}
 
   .image-wrapper {
     object-fit: contain;

@@ -31,9 +31,9 @@ const MainNav = (props) => {
 
   const navBackgroundClasses = open ? "main-nav open" : "main-nav";
   const toggleMenuBtnClasses = open ? "menu-toggle open" : "menu-toggle";
-  const navLinkClasses = "nav-link woosh-nav-link fs-2 ";
+  const navLinkClasses = "nav-link woosh-nav-link ";
 
-  return <Navbar expand="sm" expanded={ open } className={ navBackgroundClasses + pageStyling }>
+  return <Navbar expand="md" expanded={ open } className={ navBackgroundClasses + pageStyling }>
     <Link className="mobile-logo" to="/">
       <img className="img" src={ logo } alt="Woosh logo"/>
     </Link>
