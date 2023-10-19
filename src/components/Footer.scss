@@ -6,6 +6,7 @@ footer {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 3fr 1fr;
   column-gap: 2rem;
+
   h3 {
     overflow-y: hidden;
   }
@@ -21,6 +22,7 @@ footer {
 .left-div {
   grid-column: 1 ;
   grid-row: 2 / 3;
+  margin-left: 10vw;
 
   p {
     font-size: 2rem;
@@ -43,6 +45,7 @@ footer {
 .right-div {
   grid-column: 2;
   grid-row: 2 / 3;
+  margin-right: 10vw;
 
   p {
     margin-bottom: 0.3rem;
@@ -91,17 +94,14 @@ footer {
       }
     }
 
-
   }
 }
 
 @media (max-width: 450px) {
-
   footer {
     grid-template-columns: 1fr;
     gap: 0.5rem;
   }
-
 }
 
 //codigo para utilizar imagem de background grayscale
