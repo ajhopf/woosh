@@ -4,6 +4,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import FontTester from "./pages/FontTester";
 import Works from "./pages/Works";
+import Contact from "./pages/Contact";
 
 function App() {
   const router = createBrowserRouter([
@@ -26,7 +27,7 @@ function App() {
         },
         {
           path: '/contact',
-          element: <Home/>
+          element: <Contact/>
         },
         {
           path: 'font-test',
