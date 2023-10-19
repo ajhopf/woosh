@@ -1,9 +1,8 @@
-import {Link, NavLink, useLocation, useNavigation} from "react-router-dom";
+import {Link, NavLink, useLocation} from "react-router-dom";
 import {Nav, Navbar} from "react-bootstrap";
 import {useState} from "react";
 
-import whitelogo from '../assets/icon-white.png';
-import blackLogo from '../assets/icon-black.png';
+import logo from '../assets/icon-white.png';
 
 import './MainNav.scss';
 
@@ -24,15 +23,17 @@ const MainNav = (props) => {
     props.setMainDisplay();
   };
 
-  const logo = location.pathname.includes('works') ? blackLogo : whitelogo;
+  const isWorksPage = location.pathname.includes('works');
+
+  const worksPage = isWorksPage ? " works" : "";
 
   const navBackgroundClasses = open ? "main-nav open" : "main-nav";
   const toggleMenuBtnClasses = open ? "menu-toggle open" : "menu-toggle";
   const navLinkClasses = "nav-link woosh-nav-link fs-2 ";
 
-  return <Navbar expand="sm" expanded={ open } className={ navBackgroundClasses }>
+  return <Navbar expand="sm" expanded={ open } className={ navBackgroundClasses + worksPage }>
     <Link className="mobile-logo" to="/">
-      <img className="img" src={ logo } alt="Woosh logo"/>
+      <img className="img" src={ logo + isWorksPage } alt="Woosh logo"/>
     </Link>
     <button
       onClick={handleNavBarToggle}
