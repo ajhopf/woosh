@@ -14,7 +14,7 @@ const images = [
   {src: corona, text: "Corona"},
   {src: off, text: "Canal Off"},
   {src: mizuno, text: "Mizuno"}
-]
+];
 
 const CarouselItem = (props) => {
   const backgroundImage = {
