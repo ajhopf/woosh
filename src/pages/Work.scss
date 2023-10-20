@@ -1,0 +1,42 @@
+.work-container {
+  background-color: #DADADA;
+
+  .work-video-container {
+    .work-iframe {
+      height: 60vh;
+      width: 100%;
+    }
+  }
+
+  .other-works-container {
+    background-color: #2D2A2B;
+    color: #DADADA;
+    padding: 4rem 0;
+
+    button {
+      border: 0;
+    }
+
+    .other-works-video {
+      height: 270px;
+      width: 480px;
+
+      background-color: #DADADA;
+      margin: 1rem 0.5rem;
+    }
+  }
+}
+//
+//<iframe title="vimeo-player" src="https://player.vimeo.com/video/678699775?h=82fc7edce4" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
+
+
+@media (max-width: 768px) {
+  .work-container {
+    .work-video-container {
+      .work-iframe {
+        height: 40vh;
+        width: 100%;
+      }
+    }
+  }
+}

@@ -6,6 +6,7 @@ import FontTester from "./pages/FontTester";
 import Works from "./pages/Works";
 import Contact from "./pages/Contact";
 import Who from "./pages/Who";
+import Work, {loader as worksLoader} from "./pages/Work";
 
 function App() {
   const router = createBrowserRouter([
@@ -21,6 +22,11 @@ function App() {
         {
           path: '/works',
           element: <Works/>
+        },
+        {
+          path:'/work/:id',
+          element: <Work />,
+          loader: worksLoader
         },
         {
           path: '/who',
