@@ -2,6 +2,10 @@ import {Link, NavLink} from "react-router-dom";
 import logo from "../assets/woosh_audio-140x70.png";
 
 import './Header.scss'
+import instagramIcon from "../assets/instagram_icon.png";
+import vimeoIcon from "../assets/vimeo_icon.png";
+import whatsappIcon from "../assets/whatsapp_icon.png";
+import SocialMediaIcons from "./SocialMediaIcons";
 
 const Header = (props) => {
   return <header>
@@ -20,7 +24,7 @@ const Header = (props) => {
       </ul>
     </nav>
     <div className="header-social-media-container">
-
+      <SocialMediaIcons/>
     </div>
   </header>;
 };

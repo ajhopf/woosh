@@ -10,6 +10,8 @@ import underArmour from '../assets/brands/bd_4.png'
 import corona from '../assets/brands/bd_5.png';
 import tiktok from '../assets/brands/bd_6.png';
 
+import homeStudio from '../assets/home-studio.jpg';
+
 const brands = [
   {src: olympikus, description: "Olympikus logo"},
   {src: mizuno, description: "Mizuno logo"},
@@ -34,7 +36,9 @@ const Home = () => {
         </div>
       </div>
     </article>
-
+    <div className="home-image-container">
+      <img src={homeStudio} alt="Home studio"/>
+    </div>
   </>;
 };
 
