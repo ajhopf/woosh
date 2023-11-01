@@ -1,8 +1,10 @@
-import MainNav from "../components/MainNav";
 import {Outlet} from "react-router-dom";
 
 import {useState} from "react";
 import Footer from "../components/Footer";
+import Header from "../components/Header";
+
+import './MainLayout.scss'
 
 const MainLayout = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -11,7 +13,9 @@ const MainLayout = () => {
   }
 
   return <>
-    <MainNav setMainDisplay={setMainDisplay}/>
+    {/*<MainNav setMainDisplay={setMainDisplay}/>*/}
+
+    <Header/>
     <main>
       {!mobileMenuOpen && <Outlet/>}
     </main>

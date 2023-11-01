@@ -1,8 +1,8 @@
-import MainNav from "../components/MainNav";
+import Header from "../components/Header";
 
 const ErrorPage = () => {
   return <>
-    <MainNav/>
+    <Header/>
     <h1>Erro! Página não encontrada</h1>
   </>
 };
