@@ -27,9 +27,9 @@ const Home = () => {
     <h1 className="home-slogan">Criamos universos sonoros</h1>
     <article className="clients-container d-flex align-items-center">
       <div className="p-1 m-5 flex-grow-1">
-        <h2 className="clients-header text-center">CLIENTS</h2>
         <hr className="w-100"/>
-        <div className="row align-items-center justify-content-center">
+        <h2 className="clients-header text-center">CLIENTS</h2>
+        <div className="d-flex flex-wrap align-items-center justify-content-center">
           {brands.map(brand => {
             return <BrandCircle src={brand.src} description={brand.description}/>
           })}
