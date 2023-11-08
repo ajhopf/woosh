@@ -4,8 +4,11 @@ import {useState} from "react";
 
 import './MobileHeader.scss'
 
-const MobileHeader = () => {
+const MobileHeader = (props) => {
   const [open, setOpen] = useState(false);
+
+  open ? props.setMobileHeaderIsOpen(true) : props.setMobileHeaderIsOpen(false);
+
   const handleNavBarToggle = () => {
     setOpen(prevState => !prevState);
   };
@@ -43,9 +46,6 @@ const MobileHeader = () => {
       </ul>
     </nav>
   </>
-
-
-
 }
 
 export default MobileHeader;

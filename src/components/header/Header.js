@@ -5,8 +5,9 @@ import DesktopHeader from "./DesktopHeader";
 
 import './Header.scss'
 
-const Header = () => {
+const Header = (props) => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [mobileHeaderIsOpen, setMobileHeaderIsOpen] = useState(false)
 
   // Function to update the screen width in state
   const updateScreenWidth = () => {
@@ -23,9 +24,9 @@ const Header = () => {
     };
   }, []);
 
-  const header = screenWidth > 968 ? <DesktopHeader/> : <MobileHeader/>;
+  props.handleOpenMobileHeader(screenWidth <= 968, mobileHeaderIsOpen)
 
-  return header;
+  return screenWidth > 968 ? <DesktopHeader/> : <MobileHeader setMobileHeaderIsOpen={setMobileHeaderIsOpen}/>;
 };
 
 export default Header;
