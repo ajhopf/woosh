@@ -7,17 +7,10 @@ import Header from "../components/header/Header";
 import './MainLayout.scss'
 
 const MainLayout = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const setMainDisplay = () => {
-    setMobileMenuOpen(prevState => !prevState);
-  }
-
   return <>
-    {/*<MainNav setMainDisplay={setMainDisplay}/>*/}
-
     <Header/>
     <main>
-      {!mobileMenuOpen && <Outlet/>}
+      <Outlet/>
     </main>
     <Footer/>
   </>
