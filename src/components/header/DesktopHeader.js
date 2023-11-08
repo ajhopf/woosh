@@ -8,7 +8,7 @@ const DesktopHeader = () => {
   return <header className="desktop-header">
     <div className="header-logo-container">
       <Link to="/">
-        <img src={logo}/>
+        <img src={logo} alt="woosh logo"/>
       </Link>
     </div>
     <nav className="header-nav-container">

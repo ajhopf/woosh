@@ -14,7 +14,7 @@ const MobileHeader = () => {
     <header className="mobile-header">
       <div className="header-logo-container">
         <Link to="/">
-          <img src={logo}/>
+          <img src={logo} alt="Woosh Logo"/>
         </Link>
       </div>
       <div className="header-middle-space">
