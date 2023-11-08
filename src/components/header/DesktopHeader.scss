@@ -1,0 +1,40 @@
+.desktop-header {
+  .header-logo-container {
+    background-color: transparent;
+  }
+
+  .header-nav-container, .header-social-media-container {
+    background-color: #090909;
+  }
+
+  .header-nav-container {
+    ul {
+      height: 70px;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    a {
+      margin: 0 1rem;
+      color: #FFF;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 4px;
+      text-decoration: none;
+      min-width: 110px;
+      text-align: center;
+    }
+
+    a.active {
+      border-bottom: solid 2px #FFF;
+    }
+  }
+
+  .header-social-media-container {
+    display: flex;
+    align-items: center;
+  }
+}
