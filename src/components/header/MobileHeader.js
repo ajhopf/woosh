@@ -38,11 +38,11 @@ const MobileHeader = (props) => {
     </header>
     <nav className={ open ? "header-nav show" : "header-nav"}>
       <ul>
-        <NavLink to="/">HOME</NavLink>
-        <NavLink to="/works">WORKS</NavLink>
-        <NavLink to="/who">WHO</NavLink>
-        <NavLink to="/contact">CONTACT</NavLink>
-        <NavLink to="/shop">SHOP</NavLink>
+        <NavLink to="/">HOME onClick={() => setOpen(false)}</NavLink>
+        <NavLink to="/works" onClick={() => setOpen(false)}>WORKS</NavLink>
+        <NavLink to="/who" onClick={() => setOpen(false)}>WHO</NavLink>
+        <NavLink to="/contact" onClick={() => setOpen(false)}>CONTACT</NavLink>
+        <NavLink to="/shop" onClick={() => setOpen(false)}>SHOP</NavLink>
       </ul>
     </nav>
   </>
