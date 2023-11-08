@@ -1,6 +1,6 @@
 import './Home.scss';
 
-import VideoContainer from "../components/VideoContainer";
+import BannerContainer from "../components/BannerContainer";
 import BrandCircle from "../components/BrandCircle";
 
 import olympikus from '../assets/brands/bd_1.png';
@@ -23,7 +23,7 @@ const brands = [
 
 const Home = () => {
   return <>
-    <VideoContainer/>
+    <BannerContainer/>
     <h1 className="home-slogan">Criamos universos sonoros</h1>
     <article className="clients-container d-flex align-items-center">
       <div className="p-1 m-5 flex-grow-1">
