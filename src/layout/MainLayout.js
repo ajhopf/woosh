@@ -18,7 +18,10 @@ const MainLayout = () => {
   };
 
   if (mobileHeaderOpen) {
-    return <Header handleOpenMobileHeader={ handleOpenMobileHeader }/>;
+    return <>
+      <Header handleOpenMobileHeader={ handleOpenMobileHeader }/>
+      <main></main>
+    </>
   }
 
   return <>
