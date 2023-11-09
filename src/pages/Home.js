@@ -30,8 +30,8 @@ const Home = () => {
         <hr className="w-100"/>
         <h2 className="clients-header text-center">CLIENTS</h2>
         <div className="d-flex flex-wrap align-items-center justify-content-center">
-          {brands.map(brand => {
-            return <BrandCircle src={brand.src} description={brand.description}/>
+          {brands.map((brand, index) => {
+            return <BrandCircle src={brand.src} description={brand.description} key={index}/>
           })}
         </div>
       </div>

@@ -47,7 +47,7 @@ const Who = () => {
       <div className="text-wrapper col-12 col-md-6 d-flex flex-column justify-content-center px-5">
         <h1>Bolívar Gelpi</h1>
         <hr/>
-        { texts.about.map(text => <p>{ text }</p>) }
+        { texts.about.map((text, index) => <p key={index}>{ text }</p>) }
       </div>
       <div className="image-wrapper col-12 col-md-6 d-flex align-items-center ps-0">
         <img src={ bolivar } alt="Bolívar Gelpi"/>
@@ -61,7 +61,7 @@ const Who = () => {
       <div className="text-wrapper col-12 col-md-6 d-flex flex-column justify-content-center px-5">
         <h2>Studio</h2>
         <hr/>
-        { texts.studio.map(text => <p>{ text }</p>) }
+        { texts.studio.map((text, index) => <p key={index}>{ text }</p>) }
       </div>
     </div>
 
@@ -69,7 +69,7 @@ const Who = () => {
       <div className="text-wrapper col-12 col-md-6 d-flex flex-column justify-content-center px-5">
         <h2>Inspiration</h2>
         <hr/>
-        { texts.inspiration.map(text => <p>{ text }</p>) }
+        { texts.inspiration.map((text, index) => <p key={index}>{ text }</p>) }
       </div>
       <div className="image-wrapper col-12 col-md-6 d-flex align-items-center ps-0">
         <img src={ inspiration } alt="Water pond"/>
