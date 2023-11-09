@@ -26,7 +26,7 @@ const Home = () => {
     <BannerContainer/>
     <h1 className="home-slogan">Criamos universos sonoros</h1>
     <article className="clients-container d-flex align-items-center">
-      <div className="p-1 m-5 flex-grow-1">
+      <div className="p-1 my-5 flex-grow-1">
         <hr className="w-100"/>
         <h2 className="clients-header text-center">CLIENTS</h2>
         <div className="d-flex flex-wrap align-items-center justify-content-center">
