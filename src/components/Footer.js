@@ -1,11 +1,6 @@
 import './Footer.scss'
 
-import {Link} from "react-router-dom";
-
-import wooshIcon from '../assets/icon-studio.png';
-import instagramIcon from '../assets/instagram_icon.png';
-import whatsappIcon from '../assets/whatsapp_icon.png';
-import vimeoIcon from '../assets/vimeo_icon.png';
+import wooshIcon from '../assets/woosh-icons/icon-studio.png';
 import SocialMediaIcons from "./SocialMediaIcons";
 
 const Footer = () => {

@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
-import instagramIcon from "../assets/instagram_icon.png";
-import vimeoIcon from "../assets/vimeo_icon.png";
-import whatsappIcon from "../assets/whatsapp_icon.png";
+import instagramIcon from "../assets/social-media-icons/instagram_icon.png";
+import vimeoIcon from "../assets/social-media-icons/vimeo_icon.png";
+import whatsappIcon from "../assets/social-media-icons/whatsapp_icon.png";
 
 import './SocialMediaIcons.scss';
 

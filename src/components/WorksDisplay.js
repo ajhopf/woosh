@@ -1,25 +1,27 @@
-import olympikus from "../assets/works/olympikus.jpg";
-import corona from "../assets/works/corona.jpg";
-import underArmour from "../assets/works/under-armour.jpg";
-import mizuno from "../assets/works/mizuno.jpg";
+import {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import leftArrow from "../assets/left-arrow.png";
-import rightArrow from "../assets/right-arrow.png";
+import {getDownloadURL, getStorage, ref} from "firebase/storage";
 
 import './WorksDisplay.scss';
 
-const images = [
-  {src: olympikus, text: "Olympikus", id: 1},
-  {src: corona, text: "Corona", id: 2},
-  {src: underArmour, text: "Under Armour", id:3},
-  {src: mizuno, text: "Mizuno", id: 4}
-];
 
 const WorkItem = (props) => {
   const navigate = useNavigate();
 
+  const storage = getStorage();
+
+  const [imgSrc, setImgSrc] = useState('');
+
+  getDownloadURL(ref(storage, 'works/' + props.url))
+    .then((url) => {
+      setImgSrc(url);
+    })
+    .catch((error) => {
+      // Handle any errors
+    });
+
   const backgroundImage = {
-    backgroundImage: `url(${ props.src })`
+    backgroundImage: `url(${ imgSrc })`
   };
 
   const handleCarouselItemClick = (id) => {
@@ -28,14 +30,16 @@ const WorkItem = (props) => {
 
 
   return <button onClick={() => handleCarouselItemClick(props.id)} className="btn works-display-item" style={ backgroundImage }>
-    <p className="works-display-text">{ props.text.toUpperCase() }</p>
+    <p className="works-display-text">{ props.description.toUpperCase() }</p>
   </button>;
 };
 
 
-const WorksDisplay = () => {
+const WorksDisplay = (props) => {
+  const worksArray = Object.values(props.loaderData);
+
   return  <div className="row works-display">
-    {images.map(image => <WorkItem src={image.src} id={image.id} text={image.text}/>)}
+    {worksArray.map((image, index) => <WorkItem key={index} url={image.url} id={image.id} description={image.description}/>)}
   </div>;
 };
 

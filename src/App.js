@@ -3,10 +3,10 @@ import MainLayout from "./layout/MainLayout";
 import ErrorPage from "./pages/ErrorPage";
 import Home, {loader as homeLoader} from "./pages/Home";
 import FontTester from "./pages/FontTester";
-import Works from "./pages/Works";
+import Works, {loader as worksLoader} from "./pages/Works";
 import Contact from "./pages/Contact";
 import Who from "./pages/Who";
-import Work, {loader as worksLoader} from "./pages/Work";
+import Work from "./pages/Work";
 
 function App() {
   const router = createBrowserRouter([
@@ -22,7 +22,8 @@ function App() {
         },
         {
           path: '/works',
-          element: <Works/>
+          element: <Works/>,
+          loader: worksLoader
         },
         {
           path:'/work/:id',

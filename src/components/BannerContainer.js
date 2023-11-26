@@ -1,7 +1,6 @@
-import video from "../assets/woman-listening-music.mp4";
 import waveVideo from "../assets/wave-video.mp4";
 
-import logo from "../assets/logo_transparante_preto.png";
+import logo from "../assets/woosh-icons/icon_audio_productions_preto.png";
 import waveFirstFrame from "../assets/wave-video-first-frame.png";
 
 import './BannerContainer.scss'

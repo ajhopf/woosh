@@ -1,10 +1,10 @@
 import './BrandCircle.scss';
 import {Link} from "react-router-dom";
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { ref, getDownloadURL } from "firebase/storage";
 import {useState} from "react";
 
 const BrandCircle = (props) => {
-  const storage = getStorage();
+  const storage = props.storage;
   const [imgSrc, setImgSrc] = useState('');
 
   getDownloadURL(ref(storage, 'brands/' + props.url))

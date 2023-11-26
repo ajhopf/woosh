@@ -1,5 +1,5 @@
 import {Link, NavLink} from "react-router-dom";
-import logo from "../../assets/woosh_audio-2.png";
+import logo from "../../assets/woosh-icons/icon_header_transparent.png";
 import SocialMediaIcons from "../SocialMediaIcons";
 
 import './DesktopHeader.scss'
