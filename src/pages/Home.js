@@ -1,27 +1,17 @@
+import {Await, defer, json, useLoaderData} from "react-router-dom";
+import {Suspense} from "react";
+import {storageRef} from "../firebase";
+
 import './Home.scss';
 
 import BannerContainer from "../components/BannerContainer";
 import BrandCircle from "../components/BrandCircle";
 
-import olympikus from '../assets/brands/bd_1.png';
-import mizuno from '../assets/brands/bd_2.png';
-import canalOff from '../assets/brands/bd_3.png';
-import underArmour from '../assets/brands/bd_4.png'
-import corona from '../assets/brands/bd_5.png';
-import tiktok from '../assets/brands/bd_6.png';
-
 import homeStudio from '../assets/home-studio.jpg';
 
-const brands = [
-  {src: olympikus, description: "Olympikus logo"},
-  {src: mizuno, description: "Mizuno logo"},
-  {src: canalOff, description: "Canal Off logo"},
-  {src: underArmour, description: "Under Armour logo"},
-  {src: corona, description: "Corona logo"},
-  {src: tiktok, description: "Tik Tok logo"}
-];
+const HomeContent = (props) => {
+  const brandsArray = Object.values(props.loaderData.english.home.brands);
 
-const Home = () => {
   return <>
     <BannerContainer/>
     <h1 className="home-slogan">Criamos universos sonoros</h1>
@@ -30,8 +20,8 @@ const Home = () => {
         <hr className="w-100"/>
         <h2 className="clients-header text-center">CLIENTS</h2>
         <div className="d-flex flex-wrap align-items-center justify-content-center">
-          {brands.map((brand, index) => {
-            return <BrandCircle src={brand.src} description={brand.description} key={index}/>
+          {brandsArray.map((brand, index) => {
+            return <BrandCircle url={brand.url} description={brand.description} key={index}/>
           })}
         </div>
       </div>
@@ -40,6 +30,40 @@ const Home = () => {
       <img src={homeStudio} alt="Home studio"/>
     </div>
   </>;
+}
+
+const Home = () => {
+  const data = useLoaderData()
+
+  return <Suspense fallback={<p style={{textAlign: "center"}}>Loading...</p>}>
+    <Await resolve={data.texts}>
+      {(texts) => <HomeContent loaderData={texts}/>}
+    </Await>
+  </Suspense>
 };
 
 export default Home;
+
+const loadTexts = async () => {
+  const response = await fetch('https://woosh-85018-default-rtdb.firebaseio.com/.json');
+  if (!response.ok) {
+    // throw new Response(
+    //   JSON.stringify({message: 'Could not fetch events'}),
+    //   {status: 500}
+    // );
+    throw json(
+      {message: 'Could not fetch events'},
+      {status: 500}
+    )
+  } else {
+    const responseData = await response.json();
+    // console.log(responseData);
+    return responseData;
+  }
+}
+
+export const loader = () => {
+  return defer({
+    texts: loadTexts()
+  })
+}

@@ -42,7 +42,6 @@ const MobileHeader = (props) => {
         <NavLink to="/works" onClick={() => setOpen(false)}>WORKS</NavLink>
         <NavLink to="/who" onClick={() => setOpen(false)}>WHO</NavLink>
         <NavLink to="/contact" onClick={() => setOpen(false)}>CONTACT</NavLink>
-        <NavLink to="/shop" onClick={() => setOpen(false)}>SHOP</NavLink>
       </ul>
     </nav>
   </>

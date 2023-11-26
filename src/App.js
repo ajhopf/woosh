@@ -1,7 +1,7 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import ErrorPage from "./pages/ErrorPage";
-import Home from "./pages/Home";
+import Home, {loader as homeLoader} from "./pages/Home";
 import FontTester from "./pages/FontTester";
 import Works from "./pages/Works";
 import Contact from "./pages/Contact";
@@ -17,7 +17,8 @@ function App() {
       children: [
         {
           index: true,
-          element: <Home/>
+          element: <Home/>,
+          loader: homeLoader
         },
         {
           path: '/works',

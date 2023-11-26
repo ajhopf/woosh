@@ -17,7 +17,6 @@ const DesktopHeader = () => {
         <NavLink to="/works">WORKS</NavLink>
         <NavLink to="/who">WHO</NavLink>
         <NavLink to="/contact">CONTACT</NavLink>
-        <NavLink to="/shop">SHOP</NavLink>
       </ul>
     </nav>
     <div className="header-social-media-container">
