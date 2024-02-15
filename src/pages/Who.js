@@ -46,10 +46,10 @@ const WhoSection = ({title, text, imageSrc}) => {
 
   return <div className={`who-section ${open ? 'open' : ''}`}  onClick={handleWhoSectionClick}>
     <div className="who-section-banner" style={{backgroundImage: `url(${imageSrc})`, backgroundSize: "cover", backgroundPosition: "top"}}>
+      <h3 className={`banner-title ${open ? 'open' : ''}`}>{title}</h3>
       <div className="arrow-container">
         <img className={ "arrow" + arrowClasses } src={arrow}/>
       </div>
-
     </div>
     <div className={`who-section-texts-container ${open ? 'open' : ''}`}>
       <h3 className="who-section-title">{ title }</h3>
@@ -69,7 +69,7 @@ const Who = () => {
       <h2 className="fs-1">masterful creator of soundscapes.</h2>
     </div>
 
-    <WhoSection title='BOLÍVAR GELPI' imageSrc={bolivar} text={texts.about}/>
+    <WhoSection title={`${'BOLÍVAR GELPI'}`} imageSrc={bolivar} text={texts.about}/>
     <WhoSection title='STUDIO' imageSrc={studio} text={texts.studio}/>
     <WhoSection title='INSPIRATION' imageSrc={inspiration} text={texts.inspiration}/>
 
