@@ -1,19 +1,16 @@
 import './Who.scss';
 
-import bolivar from '../assets/who/bgelpi.PNG';
+import bolivar from '../assets/who/bgelpi.png';
 import studio from '../assets/who/studio.jpeg';
-import inspiration from '../assets/who/inspiration.jpg';
+import inspiration from '../assets/who/inspiration.png';
+import arrow from '../assets/who/arrow.png';
+import {useState} from "react";
+
 
 const texts = {
   about: [
-    "Bolívar is not just an audio mixer; he's a masterful creator of soundscapes. ",
-    "With a portfolio that includes collaborations with renowned brands like Corona, Canal Off, Mizuno, Olympikus," +
-    " and TikTok, he has become a true maestro in the world of audio production. " +
-    "His artistic journey began as the lead vocalist and founder of the band Gelpi, a musical venture that also" +
-    " featured his talented siblings.",
-    "Bolívar's passion for music and audio innovation has evolved over the years, and he's now the driving force behind Woosh, his own brand. " +
-    "His ability to blend the auditory and visual realms into a harmonious symphony is what sets him apart. He" +
-    " is not just a sound mixer; he's a storyteller through audio."
+    "With a portfolio that includes collaborations with renowned brands like Corona, Canal Off, Mizuno, Olympikus, and TikTok, he has become a true maestro in the world of audio production. His artistic journey began as the lead vocalist and founder of the band Gelpi, a musical venture that also featured his talented siblings.",
+    "Bolívar's passion for music and audio innovation has evolved over the years, and he's now the driving force behind Woosh, his own brand. His ability to blend the auditory and visual realms into a harmonious symphony is what sets him apart. He is not just a sound mixer; he's a storyteller through audio."
   ],
   studio: [
     "Bolívar's creative sanctuary is nothing short of extraordinary.",
@@ -39,42 +36,75 @@ const texts = {
   ]
 };
 
+const WhoSection = ({title, text, imageSrc}) => {
+  const [open, setOpen] = useState(false);
+  const handleWhoSectionClick = () => {
+    setOpen(prevState => !prevState);
+  }
+
+  const arrowClasses = open ? " open" : "";
+
+  return <div className={`who-section ${open ? 'open' : ''}`}  onClick={handleWhoSectionClick}>
+    <div className="who-section-banner" style={{backgroundImage: `url(${imageSrc})`, backgroundSize: "cover", backgroundPosition: "top"}}>
+      <div className="arrow-container">
+        <img className={ "arrow" + arrowClasses } src={arrow}/>
+      </div>
+
+    </div>
+    <div className={`who-section-texts-container ${open ? 'open' : ''}`}>
+      <h3 className="who-section-title">{ title }</h3>
+      <div className={`who-section-text ${open ? 'open' : ''}`}>
+        { text.map((text, index) => <p key={index}>{ text }</p>) }
+      </div>
+    </div>
+  </div>
+}
 
 
 const Who = () => {
+
   return <section className="who-container">
-    <div className="first-content row">
-      <div className="text-wrapper col-12 col-md-6 d-flex flex-column justify-content-center px-5">
-        <h1>Bolívar Gelpi</h1>
-        <hr/>
-        { texts.about.map((text, index) => <p key={index}>{ text }</p>) }
-      </div>
-      <div className="image-wrapper col-12 col-md-6 d-flex align-items-center ps-0">
-        <img src={ bolivar } alt="Bolívar Gelpi"/>
-      </div>
+    <div className="text-white who-header">
+      <h2 className="text-decoration-line-through fs-1">audio mixer</h2>
+      <h2 className="fs-1">masterful creator of soundscapes.</h2>
     </div>
 
-    <div className="second-content row flex-column-reverse flex-md-row">
-      <div className="image-wrapper col-12 col-md-6 d-flex align-items-center pe-0">
-        <img className="studio-image" src={ studio } alt="Woosh Studio"/>
-      </div>
-      <div className="text-wrapper col-12 col-md-6 d-flex flex-column justify-content-center px-5">
-        <h2>Studio</h2>
-        <hr/>
-        { texts.studio.map((text, index) => <p key={index}>{ text }</p>) }
-      </div>
-    </div>
+    <WhoSection title='BOLÍVAR GELPI' imageSrc={bolivar} text={texts.about}/>
+    <WhoSection title='STUDIO' imageSrc={studio} text={texts.studio}/>
+    <WhoSection title='INSPIRATION' imageSrc={inspiration} text={texts.inspiration}/>
 
-    <div className="first-content row">
-      <div className="text-wrapper col-12 col-md-6 d-flex flex-column justify-content-center px-5">
-        <h2>Inspiration</h2>
-        <hr/>
-        { texts.inspiration.map((text, index) => <p key={index}>{ text }</p>) }
-      </div>
-      <div className="image-wrapper col-12 col-md-6 d-flex align-items-center ps-0">
-        <img src={ inspiration } alt="Water pond"/>
-      </div>
-    </div>
+    {/*<div className="first-content row">*/}
+    {/*  <div className="text-wrapper col-12 col-md-6 d-flex flex-column justify-content-center px-5">*/}
+    {/*    <h1>Bolívar Gelpi</h1>*/}
+    {/*    <hr/>*/}
+    {/*    { texts.about.map((text, index) => <p key={index}>{ text }</p>) }*/}
+    {/*  </div>*/}
+    {/*  <div className="image-wrapper col-12 col-md-6 d-flex align-items-center ps-0">*/}
+    {/*    <img src={ bolivar } alt="Bolívar Gelpi"/>*/}
+    {/*  </div>*/}
+    {/*</div>*/}
+
+    {/*<div className="second-content row flex-column-reverse flex-md-row">*/}
+    {/*  <div className="image-wrapper col-12 col-md-6 d-flex align-items-center pe-0">*/}
+    {/*    <img className="studio-image" src={ studio } alt="Woosh Studio"/>*/}
+    {/*  </div>*/}
+    {/*  <div className="text-wrapper col-12 col-md-6 d-flex flex-column justify-content-center px-5">*/}
+    {/*    <h2>Studio</h2>*/}
+    {/*    <hr/>*/}
+    {/*    { texts.studio.map((text, index) => <p key={index}>{ text }</p>) }*/}
+    {/*  </div>*/}
+    {/*</div>*/}
+
+    {/*<div className="first-content row">*/}
+    {/*  <div className="text-wrapper col-12 col-md-6 d-flex flex-column justify-content-center px-5">*/}
+    {/*    <h2>Inspiration</h2>*/}
+    {/*    <hr/>*/}
+    {/*    { texts.inspiration.map((text, index) => <p key={index}>{ text }</p>) }*/}
+    {/*  </div>*/}
+    {/*  <div className="image-wrapper col-12 col-md-6 d-flex align-items-center ps-0">*/}
+    {/*    <img src={ inspiration } alt="Water pond"/>*/}
+    {/*  </div>*/}
+    {/*</div>*/}
   </section>;
 };
 

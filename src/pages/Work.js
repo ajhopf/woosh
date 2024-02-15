@@ -1,5 +1,5 @@
 import './Work.scss';
-import {Await, defer, json, useLoaderData, useNavigate, useParams} from "react-router-dom";
+import {Await, useLoaderData, useNavigate, useParams} from "react-router-dom";
 import WorkVideo from "../components/WorkVideo";
 import {Suspense} from "react";
 
