@@ -1,8 +1,9 @@
-footer {
+.main-footer {
   background-color: #090909;
   color: #DADADA;
   font-family: 'Inter', sans-serif;
   height: 50vh;
+  display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 3fr 1fr;
   column-gap: 2rem;
@@ -55,7 +56,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  footer {
+  .main-footer {
     height: 40vh;
 
     //p {
@@ -81,7 +82,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  footer {
+  .main-footer {
     grid-template-columns: 0 1fr;
     padding-left: 8vw;
     gap: 0.5rem;

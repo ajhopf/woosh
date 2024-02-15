@@ -1,4 +1,4 @@
-import {Outlet} from "react-router-dom";
+import {Outlet, useLocation} from "react-router-dom";
 
 import Footer from "../components/Footer";
 import Header from "../components/header/Header";
@@ -8,6 +8,8 @@ import {useState} from "react";
 
 const MainLayout = () => {
   const [mobileHeaderOpen, setMobileHeaderOpen] = useState(false);
+
+  const location = useLocation();
 
   const handleOpenMobileHeader = (isMobileScreen, isOpen) => {
     if (isMobileScreen && isOpen) {
@@ -21,6 +23,15 @@ const MainLayout = () => {
     return <>
       <Header handleOpenMobileHeader={ handleOpenMobileHeader }/>
       <main></main>
+    </>
+  }
+
+  if (location.pathname.includes("/contact")) {
+    return <>
+      <Header handleOpenMobileHeader={ handleOpenMobileHeader }/>
+      <main>
+        <Outlet/>
+      </main>
     </>
   }
 

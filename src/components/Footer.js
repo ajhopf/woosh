@@ -4,7 +4,7 @@ import wooshIcon from '../assets/woosh-icons/icon-studio.png';
 import SocialMediaIcons from "./SocialMediaIcons";
 
 const Footer = () => {
-  return <footer className="d-grid">
+  return <footer className="main-footer">
     <div className="left-div">
       <p className="titles">{ "Reach out".toUpperCase() }</p>
       <img className="woosh-footer-icon" src={ wooshIcon } alt="Woosh Studio Icon"/>
