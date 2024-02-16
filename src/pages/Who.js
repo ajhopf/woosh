@@ -45,7 +45,7 @@ const WhoSection = ({title, text, imageSrc}) => {
   const arrowClasses = open ? " open" : "";
 
   return <div className={`who-section ${open ? 'open' : ''}`}  onClick={handleWhoSectionClick}>
-    <div className="who-section-banner" style={{backgroundImage: `url(${imageSrc})`, backgroundSize: "cover", backgroundPosition: "top"}}>
+    <div className={`who-section-banner ${open ? 'open' : ''}`} style={{backgroundImage: `url(${imageSrc})`, backgroundSize: "cover", backgroundPosition: "top"}}>
       <h3 className={`banner-title ${open ? 'open' : ''}`}>{title}</h3>
       <div className="arrow-container">
         <img className={ "arrow" + arrowClasses } src={arrow}/>
