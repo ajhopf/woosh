@@ -7,6 +7,8 @@ import Works, {loader as worksLoader} from "./pages/Works";
 import Contact from "./pages/Contact";
 import Who from "./pages/Who";
 import Work from "./pages/Work";
+import {initializeApp} from "firebase/app";
+import {firebaseConfig} from "./firebase";
 
 function App() {
   const router = createBrowserRouter([
@@ -46,6 +48,7 @@ function App() {
     }
   ])
 
+  initializeApp(firebaseConfig)
 
   return <RouterProvider router={router}/>
 }
