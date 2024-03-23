@@ -1,6 +1,5 @@
 import {Await, defer, json, useLoaderData} from "react-router-dom";
 import {Suspense, useState} from "react";
-import {storageRef} from "../firebase";
 
 import './Home.scss';
 
@@ -10,6 +9,7 @@ import BrandCircle from "../components/BrandCircle";
 import {getDownloadURL, getStorage, ref} from "firebase/storage";
 
 const HomeContent = (props) => {
+  const {homeVideo} = useLoaderData()
   const brandsArray = Object.values(props.loaderData.english.brands);
   const texts = props.loaderData.english.texts;
   const homeImage = props.loaderData.english.homeImage;
@@ -27,7 +27,10 @@ const HomeContent = (props) => {
     });
 
   return <>
-    <BannerContainer/>
+    <Await resolve={homeVideo}>
+      {(videoUrl => <BannerContainer url={videoUrl}/>)}
+    </Await>
+
     <h1 className="home-slogan">{texts.slogan}</h1>
     <article className="clients-container d-flex align-items-center">
       <div className="p-1 my-5 flex-grow-1">
@@ -58,26 +61,37 @@ const Home = () => {
 
 export default Home;
 
-const loadHomeContent = async () => {
-  const response = await fetch('https://woosh-85018-default-rtdb.firebaseio.com/home/.json');
-  if (!response.ok) {
-    // throw new Response(
-    //   JSON.stringify({message: 'Could not fetch events'}),
-    //   {status: 500}
-    // );
-    throw json(
-      {message: 'Could not fetch events'},
-      {status: 500}
-    )
-  } else {
-    const responseData = await response.json();
-    // console.log(responseData);
-    return responseData;
+const loadHomeTexts = async () => {
+  try {
+    const response = await fetch('https://woosh-85018-default-rtdb.firebaseio.com/home/.json');
+    console.log(response)
+    if (!response.ok) {
+      throw json(
+        {message: 'Could not fetch information from database'},
+        {status: 500}
+      )
+    } else {
+      const responseData = await response.json();
+      return responseData;
+    }
+  } catch (e) {
+    throw new Error();
   }
 }
 
-export const loader = () => {
+const loadHomeVideo = async () => {
+  const storage = getStorage();
+    try {
+      return await getDownloadURL(ref(storage, 'home/wave-video.mp4'));
+    } catch (e) {
+      console.log(e)
+      return new Response();
+    }
+}
+
+export const loader = async () => {
   return defer({
-    texts: loadHomeContent()
+    texts: await loadHomeTexts(),
+    homeVideo: loadHomeVideo()
   })
 }
