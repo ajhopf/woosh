@@ -1,13 +1,15 @@
 import {Link, NavLink} from "react-router-dom";
 import logo from "../../assets/woosh-icons/icon_header_transparent.png";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 import './MobileHeader.scss'
 
 const MobileHeader = (props) => {
   const [open, setOpen] = useState(false);
 
-  open ? props.setMobileHeaderIsOpen(true) : props.setMobileHeaderIsOpen(false);
+  useEffect(() => {
+    open ? props.setMobileHeaderIsOpen(true) : props.setMobileHeaderIsOpen(false);
+  }, []);
 
   const handleNavBarToggle = () => {
     setOpen(prevState => !prevState);

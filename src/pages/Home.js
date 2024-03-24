@@ -1,5 +1,5 @@
 import {Await, defer, json, useLoaderData} from "react-router-dom";
-import {Suspense, useState} from "react";
+import {Suspense, useEffect, useState} from "react";
 
 import './Home.scss';
 
@@ -9,7 +9,6 @@ import BrandCircle from "../components/BrandCircle";
 import {getDownloadURL, getStorage, ref} from "firebase/storage";
 
 const HomeContent = (props) => {
-  const {homeVideo} = useLoaderData()
   const brandsArray = Object.values(props.loaderData.english.brands);
   const texts = props.loaderData.english.texts;
   const homeImage = props.loaderData.english.homeImage;
@@ -18,19 +17,17 @@ const HomeContent = (props) => {
 
   const [imgSrc, setImgSrc] = useState('');
 
-  getDownloadURL(ref(storage, homeImage.url))
-    .then((url) => {
-      setImgSrc(url);
-    })
-    .catch((error) => {
-      // Handle any errors
-    });
+  useEffect(() => {
+    getDownloadURL(ref(storage, homeImage.url))
+      .then((url) => {
+        setImgSrc(url);
+      })
+      .catch((error) => {
+        // Handle any errors
+      });
+  }, []);
 
   return <>
-    <Await resolve={homeVideo}>
-      {(videoUrl => <BannerContainer url={videoUrl}/>)}
-    </Await>
-
     <h1 className="home-slogan">{texts.slogan}</h1>
     <article className="clients-container d-flex align-items-center">
       <div className="p-1 my-5 flex-grow-1">
@@ -52,11 +49,16 @@ const HomeContent = (props) => {
 const Home = () => {
   const data = useLoaderData()
 
-  return <Suspense fallback={<p style={{textAlign: "center"}}>Loading...</p>}>
-    <Await resolve={data.texts}>
-      {(texts) => <HomeContent loaderData={texts}/>}
-    </Await>
-  </Suspense>
+  return <>
+    <Suspense>
+      <Await resolve={data.homeVideo}>
+        {(videoUrl => <BannerContainer url={videoUrl}/>)}
+      </Await>
+      <Await resolve={data.texts}>
+        {(texts) => <HomeContent loaderData={texts}/>}
+      </Await>
+    </Suspense>
+  </>
 };
 
 export default Home;
@@ -64,7 +66,7 @@ export default Home;
 const loadHomeTexts = async () => {
   try {
     const response = await fetch('https://woosh-85018-default-rtdb.firebaseio.com/home/.json');
-    console.log(response)
+
     if (!response.ok) {
       throw json(
         {message: 'Could not fetch information from database'},
@@ -84,14 +86,14 @@ const loadHomeVideo = async () => {
     try {
       return await getDownloadURL(ref(storage, 'home/wave-video.mp4'));
     } catch (e) {
-      console.log(e)
+      // console.log(e)
       return new Response();
     }
 }
 
 export const loader = async () => {
   return defer({
-    texts: await loadHomeTexts(),
+    texts: loadHomeTexts(),
     homeVideo: loadHomeVideo()
   })
 }

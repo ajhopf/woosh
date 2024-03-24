@@ -24,9 +24,15 @@ const Header = (props) => {
     };
   }, []);
 
-  props.handleOpenMobileHeader(screenWidth <= 968, mobileHeaderIsOpen)
+  useEffect(() => {
+    props.handleOpenMobileHeader(screenWidth <= 968, mobileHeaderIsOpen)
+  }, [props.handleOpenMobileHeader]);
 
-  return screenWidth > 968 ? <DesktopHeader/> : <MobileHeader setMobileHeaderIsOpen={setMobileHeaderIsOpen}/>;
+
+  return <>
+    { screenWidth > 968 && <DesktopHeader/> }
+    { screenWidth <= 968 && <MobileHeader setMobileHeaderIsOpen={setMobileHeaderIsOpen}/>}
+  </>
 };
 
 export default Header;
