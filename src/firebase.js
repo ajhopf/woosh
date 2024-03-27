@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 //import {initializeApp} from "firebase/app";
 
+import {initializeApp} from "firebase/app";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBEAZXs1lhtFD_OhSEi13yaxiPVepkpnc8",
@@ -11,8 +12,8 @@ export const firebaseConfig = {
   appId: "1:164721933250:web:22cc7c0f4744145a88345b"
 };
 
-// const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 // const storage = getStorage();
 // export const storageRef = ref(storage);
 
-// export default app;
+export default app;
