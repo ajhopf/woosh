@@ -1,5 +1,5 @@
-import logo from "../assets/woosh-icons/icon_audio_productions_preto.png";
-import waveFirstFrame from "../assets/wave-video-first-frame.png";
+import logo from "../../assets/woosh-icons/icon_audio_productions_preto.png";
+import waveFirstFrame from "../../assets/wave-video-first-frame.png";
 
 import './BannerContainer.scss'
 
