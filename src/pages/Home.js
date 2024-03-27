@@ -3,10 +3,11 @@ import {Suspense, useEffect, useState} from "react";
 
 import './Home.scss';
 
-import BannerContainer from "../components/BannerContainer";
-import BrandCircle from "../components/BrandCircle";
+import BannerContainer from "../components/home/BannerContainer";
+import BrandCircle from "../components/home/BrandCircle";
 
 import {getDownloadURL, getStorage, ref} from "firebase/storage";
+import HomeLoading from "../components/home/HomeLoading";
 
 const HomeContent = (props) => {
   const brandsArray = Object.values(props.loaderData.english.brands);
@@ -48,17 +49,24 @@ const HomeContent = (props) => {
 
 const Home = () => {
   const data = useLoaderData()
+  const [isLoading, setIsLoading] = useState(true);
 
-  return <>
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 1500)
+  }, []);
+
+  return <HomeLoading isLoading={isLoading}>
     <Suspense>
       <Await resolve={data.homeVideo}>
-        {(videoUrl => <BannerContainer url={videoUrl}/>)}
+        {(videoUrl) => <BannerContainer url={videoUrl}/>}
       </Await>
       <Await resolve={data.texts}>
         {(texts) => <HomeContent loaderData={texts}/>}
       </Await>
     </Suspense>
-  </>
+  </HomeLoading>
 };
 
 export default Home;

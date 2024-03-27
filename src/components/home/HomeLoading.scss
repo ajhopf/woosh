@@ -1,0 +1,49 @@
+.transition-container {
+  position: absolute;
+  display: flex;
+  height: calc(100vh - 70px);
+  width: 100vw;
+  z-index: 1000;
+  opacity: 1;
+  transition: all 1s ease-in-out;
+
+  & > * {
+    height: calc(100vh - 70px);
+    transition: all 1s ease-in-out;
+    width: 33%;
+  }
+
+  & .left {
+    background-color: green;
+    left: 0;
+  }
+
+  & .center {
+    background-color: yellow;
+
+  }
+
+  & .right {
+    background-color: red;
+    left: calc(100% - 2*33.3%);
+  }
+
+  &.hideLoading {
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    z-index: -10;
+    & .left {
+      transform: translateX(-100%)
+    }
+    & .center {
+      transform: translateY(-100%);
+    }
+    & .right {
+      transform: translateX(100%)
+    }
+  }
+}
+
+.hide {
+  display: none;
+}

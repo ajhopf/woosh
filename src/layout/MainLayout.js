@@ -1,15 +1,26 @@
-import {Outlet, useLocation} from "react-router-dom";
+import {Outlet, useLocation, useNavigation} from "react-router-dom";
 
 import Footer from "../components/Footer";
 import Header from "../components/header/Header";
 
 import './MainLayout.scss';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const MainLayout = () => {
   const [mobileHeaderOpen, setMobileHeaderOpen] = useState(false);
 
   const location = useLocation();
+  const navigation = useNavigation()
+  let isLoading = false;
+
+  if (navigation.state === 'loading') {
+    console.log('loading...')
+    isLoading = true
+    setTimeout(() => {
+      console.log('loading finished')
+      isLoading = false
+    }, 2000)
+  }
 
   const handleOpenMobileHeader = (isMobileScreen, isOpen) => {
     if (isMobileScreen && isOpen) {
@@ -36,7 +47,7 @@ const MainLayout = () => {
   }
 
   return <>
-    <Header handleOpenMobileHeader={ handleOpenMobileHeader }/>
+    <Header handleOpenMobileHeader={handleOpenMobileHeader}/>
     <main>
       <Outlet/>
     </main>
