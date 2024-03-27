@@ -5,6 +5,7 @@ import studio from '../assets/who/studio.jpeg';
 import inspiration from '../assets/who/inspiration.png';
 import arrow from '../assets/who/arrow.png';
 import {useState} from "react";
+import Transition from "../components/Transition";
 
 
 const texts = {
@@ -44,20 +45,23 @@ const WhoSection = ({title, text, imageSrc}) => {
 
   const arrowClasses = open ? " open" : "";
 
-  return <div className={`who-section ${open ? 'open' : ''}`}  onClick={handleWhoSectionClick}>
-    <div className={`who-section-banner ${open ? 'open' : ''}`} style={{backgroundImage: `url(${imageSrc})`, backgroundSize: "cover", backgroundPosition: "top"}}>
-      <h3 className={`banner-title ${open ? 'open' : ''}`}>{title}</h3>
-      <div className="arrow-container">
-        <img className={ "arrow" + arrowClasses } src={arrow}/>
+  return <Transition>
+    <div className={`who-section ${open ? 'open' : ''}`} onClick={handleWhoSectionClick}>
+      <div className={`who-section-banner ${open ? 'open' : ''}`}
+           style={{backgroundImage: `url(${imageSrc})`, backgroundSize: "cover", backgroundPosition: "top"}}>
+        <h3 className={`banner-title ${open ? 'open' : ''}`}>{title}</h3>
+        <div className="arrow-container">
+          <img className={"arrow" + arrowClasses} src={arrow}/>
+        </div>
+      </div>
+      <div className={`who-section-texts-container ${open ? 'open' : ''}`}>
+        <h3 className="who-section-title">{title}</h3>
+        <div className={`who-section-text ${open ? 'open' : ''}`}>
+          {text.map((text, index) => <p key={index}>{text}</p>)}
+        </div>
       </div>
     </div>
-    <div className={`who-section-texts-container ${open ? 'open' : ''}`}>
-      <h3 className="who-section-title">{ title }</h3>
-      <div className={`who-section-text ${open ? 'open' : ''}`}>
-        { text.map((text, index) => <p key={index}>{ text }</p>) }
-      </div>
-    </div>
-  </div>
+  </Transition>
 }
 
 

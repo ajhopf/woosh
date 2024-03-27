@@ -2,9 +2,18 @@ import './Footer.scss'
 
 import wooshIcon from '../assets/woosh-icons/icon-studio.png';
 import SocialMediaIcons from "./SocialMediaIcons";
+import {useEffect, useState} from "react";
 
 const Footer = () => {
-  return <footer className="main-footer">
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShow(true)
+    }, 1000)
+  }, []);
+
+  return <footer className={show ? "main-footer" : "main-footer hide"}>
     <div className="left-div">
       <p className="titles">{ "Reach out".toUpperCase() }</p>
       <img className="woosh-footer-icon" src={ wooshIcon } alt="Woosh Studio Icon"/>

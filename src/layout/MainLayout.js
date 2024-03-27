@@ -1,4 +1,4 @@
-import {Outlet, useLocation } from "react-router-dom";
+import {Outlet, useLocation, useNavigation} from "react-router-dom";
 
 import Footer from "../components/Footer";
 import Header from "../components/header/Header";
@@ -10,6 +10,7 @@ const MainLayout = () => {
   const [mobileHeaderOpen, setMobileHeaderOpen] = useState(false);
 
   const location = useLocation();
+  const navigation = useNavigation();
 
   const handleOpenMobileHeader = (isMobileScreen, isOpen) => {
     if (isMobileScreen && isOpen) {
@@ -40,7 +41,7 @@ const MainLayout = () => {
     <main>
       <Outlet/>
     </main>
-    <Footer/>
+    { navigation.state === 'idle' && <Footer />}
   </>;
 };
 
