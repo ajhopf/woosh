@@ -72,39 +72,6 @@ const Who = () => {
     <WhoSection title={`${'BOLÍVAR GELPI'}`} imageSrc={bolivar} text={texts.about}/>
     <WhoSection title='STUDIO' imageSrc={studio} text={texts.studio}/>
     <WhoSection title='INSPIRATION' imageSrc={inspiration} text={texts.inspiration}/>
-
-    {/*<div className="first-content row">*/}
-    {/*  <div className="text-wrapper col-12 col-md-6 d-flex flex-column justify-content-center px-5">*/}
-    {/*    <h1>Bolívar Gelpi</h1>*/}
-    {/*    <hr/>*/}
-    {/*    { texts.about.map((text, index) => <p key={index}>{ text }</p>) }*/}
-    {/*  </div>*/}
-    {/*  <div className="image-wrapper col-12 col-md-6 d-flex align-items-center ps-0">*/}
-    {/*    <img src={ bolivar } alt="Bolívar Gelpi"/>*/}
-    {/*  </div>*/}
-    {/*</div>*/}
-
-    {/*<div className="second-content row flex-column-reverse flex-md-row">*/}
-    {/*  <div className="image-wrapper col-12 col-md-6 d-flex align-items-center pe-0">*/}
-    {/*    <img className="studio-image" src={ studio } alt="Woosh Studio"/>*/}
-    {/*  </div>*/}
-    {/*  <div className="text-wrapper col-12 col-md-6 d-flex flex-column justify-content-center px-5">*/}
-    {/*    <h2>Studio</h2>*/}
-    {/*    <hr/>*/}
-    {/*    { texts.studio.map((text, index) => <p key={index}>{ text }</p>) }*/}
-    {/*  </div>*/}
-    {/*</div>*/}
-
-    {/*<div className="first-content row">*/}
-    {/*  <div className="text-wrapper col-12 col-md-6 d-flex flex-column justify-content-center px-5">*/}
-    {/*    <h2>Inspiration</h2>*/}
-    {/*    <hr/>*/}
-    {/*    { texts.inspiration.map((text, index) => <p key={index}>{ text }</p>) }*/}
-    {/*  </div>*/}
-    {/*  <div className="image-wrapper col-12 col-md-6 d-flex align-items-center ps-0">*/}
-    {/*    <img src={ inspiration } alt="Water pond"/>*/}
-    {/*  </div>*/}
-    {/*</div>*/}
   </section>;
 };
 

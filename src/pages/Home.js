@@ -7,7 +7,7 @@ import BannerContainer from "../components/home/BannerContainer";
 import BrandCircle from "../components/home/BrandCircle";
 
 import {getDownloadURL, getStorage, ref} from "firebase/storage";
-import HomeLoading from "../components/home/HomeLoading";
+import Transition from "../components/Transition";
 
 const HomeContent = (props) => {
   const brandsArray = Object.values(props.loaderData.english.brands);
@@ -26,7 +26,7 @@ const HomeContent = (props) => {
       .catch((error) => {
         // Handle any errors
       });
-  }, []);
+  }, [storage, homeImage.url]);
 
   return <>
     <h1 className="home-slogan">{texts.slogan}</h1>
@@ -49,15 +49,8 @@ const HomeContent = (props) => {
 
 const Home = () => {
   const data = useLoaderData()
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 1500)
-  }, []);
-
-  return <HomeLoading isLoading={isLoading}>
+  return <Transition >
     <Suspense>
       <Await resolve={data.homeVideo}>
         {(videoUrl) => <BannerContainer url={videoUrl}/>}
@@ -66,7 +59,7 @@ const Home = () => {
         {(texts) => <HomeContent loaderData={texts}/>}
       </Await>
     </Suspense>
-  </HomeLoading>
+  </Transition>
 };
 
 export default Home;

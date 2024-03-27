@@ -1,6 +1,14 @@
-import './HomeLoading.scss'
+import './Transition.scss'
+import {useEffect, useState} from "react";
 
-const HomeLoading = ({children, isLoading}) => {
+const Transition = ({children}) => {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 1500)
+  }, []);
 
   return <>
     <div className={isLoading ? 'transition-container' : 'transition-container hideLoading'}>
@@ -18,4 +26,4 @@ const HomeLoading = ({children, isLoading}) => {
 
 };
 
-export default HomeLoading;
+export default Transition;

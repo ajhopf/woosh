@@ -3,16 +3,18 @@ import './Works.scss'
 import WorksDisplay from "../components/WorksDisplay";
 import {Await, defer, json, useLoaderData} from "react-router-dom";
 import {Suspense} from "react";
+import Transition from "../components/Transition";
 
 const Works = () => {
   const data = useLoaderData()
 
-  return <Suspense fallback={<p style={{textAlign: "center"}}>Loading...</p>}>
-    <Await resolve={data.texts}>
-      {(texts) => <WorksDisplay loaderData={texts}/>}
-    </Await>
-  </Suspense>
-
+  return <Transition>
+    <Suspense fallback={<p style={{textAlign: "center"}}>Loading...</p>}>
+      <Await resolve={data.texts}>
+        {(texts) => <WorksDisplay loaderData={texts}/>}
+      </Await>
+    </Suspense>
+  </Transition>
 };
 
 export default Works;
@@ -25,7 +27,7 @@ const loadWorksContent = async () => {
     //   {status: 500}
     // );
     throw json(
-      {message: 'Could not fetch events'},
+      {message: 'Could not fetch works'},
       {status: 500}
     )
   } else {
