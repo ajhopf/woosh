@@ -2,7 +2,6 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import ErrorPage from "./pages/ErrorPage";
 import Home, {loader as homeLoader} from "./pages/Home";
-import FontTester from "./pages/FontTester";
 import Works, {loader as worksLoader} from "./pages/Works";
 import Contact from "./pages/Contact";
 import Who from "./pages/Who";
@@ -39,10 +38,6 @@ function App() {
         {
           path: '/contact',
           element: <Contact/>
-        },
-        {
-          path: 'font-test',
-          element: <FontTester/>
         }
       ]
     }
